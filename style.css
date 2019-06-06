@@ -1,7 +1,7 @@
 body {
     background-color: #62B6CB;
     color: #CAE9FF;
-    text-align: center;
+    text-align: left;
 }
 
 #calculator {
@@ -33,4 +33,8 @@ body {
     height: 50px;
     background-color: white;
     border-radius: 10px;
+    font-size: 28px;
+    color: #1B4965;
+    padding: 10px;
+    margin-bottom: 10px;
 }
