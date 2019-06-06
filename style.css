@@ -25,6 +25,15 @@ body {
     font-size: 18px;
 }
 
+.buttons:active {
+    background-color: #62B6CB;
+}
+
+#equals {
+    border-radius: 10px;
+    width: 400px;
+}
+
 #display {
     grid-area: header;
     grid-row-start: 1;
