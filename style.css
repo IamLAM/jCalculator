@@ -2,3 +2,10 @@ body {
     background-color: #62B6CB;
     color: #CAE9FF;
 }
+
+#calculator {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 50px 50px 50px 50px;
+    grid-template-rows: auto;
+}
