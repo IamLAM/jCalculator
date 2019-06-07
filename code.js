@@ -1,4 +1,5 @@
-var values;
+var values="";
+var action="";
 
 $(document).ready(function(){
 
@@ -9,7 +10,7 @@ $(".buttons").on("click", state);
 console.log(action);
 
 function state(){
-    var action= event.currentTarget.innerHTML;
+    action= event.currentTarget.innerHTML;
     values+=action;
     console.log(action);
     console.log(values);
@@ -17,8 +18,10 @@ function state(){
     if(action=="AC")
         {values=0;
         document.getElementById("display").innerHTML=values;
-        }
+        }else{
 
+            document.getElementById("display").innerHTML=values;
+        }
 }
 
 });
