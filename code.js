@@ -2,6 +2,7 @@ var action="";
 var ans="";
 var values="";
 var cp=0;
+var erase=false;
 
 $(document).ready(function(){
 
@@ -14,9 +15,19 @@ $(".buttons").on("click", state);
 
 function state(){
 
+    if(erase==true){
+        values="";
+        erase=false;
+    }
+
+
    var action = $(this).attr("value");
     console.log(action);
     
+
+    
+
+
     switch(action){
         case "+": case "-": case "/" : case "*" : 
                 values+=action;
@@ -43,7 +54,7 @@ function state(){
 
         case "=":
                 ans=eval(values);
-              $("#display").val(values);
+              $("#display").val(ans);
    
                 console.log("Eval:"+ans);
         break;
@@ -51,12 +62,13 @@ function state(){
 
         case "C":
                 
-                values="";
+                values=0;
                 cp=0;
                
        $("#display").val(values);
  
         console.log("Clean all!!");
+        erase=true;
          break;
 
   
