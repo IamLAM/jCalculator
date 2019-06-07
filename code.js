@@ -18,6 +18,7 @@ function state(){
     if(erase==true){
         values="";
         erase=false;
+        console.log("erase!");
     }
 
 
