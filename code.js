@@ -1,6 +1,7 @@
 var action="";
 var ans="";
 var values="";
+var cp=0;
 
 $(document).ready(function(){
 
@@ -17,16 +18,32 @@ function state(){
     console.log(action);
     
     switch(action){
-        case "+": case "-": case "/" : case "*" : case ".":
+        case "+": case "-": case "/" : case "*" : 
                 values+=action;
-                $("display").val(values);
+                $("#display").val(values);
+                cp=0;
         
                console.log("add operators");
         break;
 
+        case ".":
+            cp++;
+            if(cp<2)
+            {
+                values+=action;
+                $("#display").val(values);
+        
+               console.log("add only a dot");
+            }
+            else{
+                console.log("error! you write many dots"+cp);
+            }
+
+        break;
+
         case "=":
                 ans=eval(values);
-              $("display").val(values);
+              $("#display").val(values);
    
                 console.log("Eval:"+ans);
         break;
@@ -35,8 +52,9 @@ function state(){
         case "C":
                 
                 values="";
+                cp=0;
                
-       $("display").val(values);
+       $("#display").val(values);
  
         console.log("Clean all!!");
          break;
@@ -44,7 +62,7 @@ function state(){
   
    default:
         values+=action;
-        $("display").val(values);
+        $("#display").val(values);
 
         console.log("Add numbers");
         break;
