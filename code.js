@@ -1,6 +1,6 @@
-var values="";
 var action="";
 var ans="";
+var values="";
 
 $(document).ready(function(){
 
@@ -12,41 +12,41 @@ $(".buttons").on("click", state);
 
 
 function state(){
-    action= event.currentTarget.innerHTML;
-   
+
+   var action = $(this).attr("value");
     console.log(action);
     
     switch(action){
         case "+": case "-": case "/" : case "*" : case ".":
                 values+=action;
-               // $("display").val(values);
-                document.getElementById("display").innerHTML=values;
-                console.log("entro al case de operadores");
+                $("display").val(values);
+        
+               console.log("add operators");
         break;
 
         case "=":
                 ans=eval(values);
-             // $("display").val(values);
-             document.getElementById("display").innerHTML=ans;
-                console.log("evaluo");
+              $("display").val(values);
+   
+                console.log("Eval:"+ans);
         break;
 
 
         case "C":
                 
-                values=0;
-                action="";
-      // $("display").val(values);
-        document.getElementById("display").innerHTML=values;
-        console.log("borro");
+                values="";
+               
+       $("display").val(values);
+ 
+        console.log("Clean all!!");
          break;
 
   
    default:
         values+=action;
-       // $("display").val(values);
-       document.getElementById("display").innerHTML=values;
-        console.log("añado numeros");
+        $("display").val(values);
+
+        console.log("Add numbers");
         break;
     }
 }
