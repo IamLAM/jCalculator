@@ -1,27 +1,52 @@
 var values="";
 var action="";
+var ans="";
 
 $(document).ready(function(){
 
-console.log("jquery vinculado");
 
 $(".buttons").on("click", state);
 
-console.log(action);
+
+});
+
 
 function state(){
     action= event.currentTarget.innerHTML;
-    values+=action;
+   
     console.log(action);
-    console.log(values);
+    
+    switch(action){
+        case "+": case "-": case "/" : case "*" : case ".":
+                values+=action;
+               // $("display").val(values);
+                document.getElementById("display").innerHTML=values;
+                console.log("entro al case de operadores");
+        break;
 
-    if(action=="AC")
-        {values=0;
+        case "=":
+                ans=eval(values);
+             // $("display").val(values);
+             document.getElementById("display").innerHTML=ans;
+                console.log("evaluo");
+        break;
+
+
+        case "C":
+                
+                values=0;
+                action="";
+      // $("display").val(values);
         document.getElementById("display").innerHTML=values;
-        }else{
+        console.log("borro");
+         break;
 
-            document.getElementById("display").innerHTML=values;
-        }
+  
+   default:
+        values+=action;
+       // $("display").val(values);
+       document.getElementById("display").innerHTML=values;
+        console.log("añado numeros");
+        break;
+    }
 }
-
-});
