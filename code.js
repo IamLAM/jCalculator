@@ -71,8 +71,9 @@ function state(){
                 
                 values=operation.join("");
                 ans=eval(values);
+                operation=[];
+                operation.push(ans);
                 $("#display").val(ans);
-   
                 console.log("Eval:"+ans);
         break;
 
