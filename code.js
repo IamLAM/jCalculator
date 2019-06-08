@@ -2,7 +2,10 @@ var action="";
 var ans="";
 var values="";
 var cp=0;
+var cz=0;
 var erase=false;
+var reg;
+var operation= [];
 
 $(document).ready(function(){
 
@@ -31,18 +34,19 @@ function state(){
 
     switch(action){
         case "+": case "-": case "/" : case "*" : 
-                values+=action;
+             //   values+=action;
+                operation.push(action);
                 $("#display").val(values);
                 cp=0;
-        
-               console.log("add operators");
+                console.log("add operators");
         break;
 
         case ".":
             cp++;
             if(cp<2)
             {
-                values+=action;
+          //      values+=action;
+                operation.push(action);
                 $("#display").val(values);
         
                console.log("add only a dot");
@@ -54,8 +58,12 @@ function state(){
         break;
 
         case "=":
+                
+              //  int i=0;
+              //  while(i<operation.lentg)
+                values=operation.join("");
                 ans=eval(values);
-              $("#display").val(ans);
+                $("#display").val(ans);
    
                 console.log("Eval:"+ans);
         break;
@@ -74,10 +82,31 @@ function state(){
 
   
    default:
-        values+=action;
+        
+                
+     //   values+=action;
+        operation.push(action);
+       /* reg=/0{2,10}/;
+        var res=values.match(reg).length;
+        console.log("Length:"+res);
+        if(res!=null||action==0){
+            cz++;
+            values= values.slice(0,cz);
+            console.log("display:"+values);
+        }else{
+
+            res=null;
+            cz=0;
+        }
+*/
+
+
+   //     console.log("res:"+res);
+ 
         $("#display").val(values);
 
         console.log("Add numbers");
         break;
     }
+    console.log(operation);
 }
