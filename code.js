@@ -35,10 +35,18 @@ function state(){
     switch(action){
         case "+": case "-": case "/" : case "*" : 
              //   values+=action;
+             if(isNaN(operation[operation.length-1])) //if previous number is +/*- then changed it for the last operator
+               { console.log("too many operators");
+                 operation[operation.length-1]=action;
+               
+              }else{
+                //  console.log(operation.length+" value:"+operation[operation.length-1]);
                 operation.push(action);
                 $("#display").val(values);
                 cp=0;
                 console.log("add operators");
+              }
+      
         break;
 
         case ".":
