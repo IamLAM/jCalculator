@@ -38,13 +38,15 @@ function state(){
              if(isNaN(operation[operation.length-1])) //if previous number is +/*- then changed it for the last operator
                { console.log("too many operators");
                  operation[operation.length-1]=action;
+                 $("#display").val(operation.join(""));
                
               }else{
                 //  console.log(operation.length+" value:"+operation[operation.length-1]);
+                values+=action;
                 operation.push(action);
                 $("#display").val(values);
                 cp=0;
-                console.log("add operators");
+                console.log("Add operators");
               }
       
         break;
@@ -53,9 +55,9 @@ function state(){
             cp++;
             if(cp<2)
             {
-          //      values+=action;
+                values+=action;
                 operation.push(action);
-                $("#display").val(values);
+                $("#display").val(operation.join(""));
         
                console.log("add only a dot");
             }
@@ -67,8 +69,6 @@ function state(){
 
         case "=":
                 
-              //  int i=0;
-              //  while(i<operation.lentg)
                 values=operation.join("");
                 ans=eval(values);
                 $("#display").val(ans);
@@ -81,7 +81,7 @@ function state(){
                 
                 values=0;
                 cp=0;
-               
+                operation= [];
        $("#display").val(values);
  
         console.log("Clean all!!");
@@ -92,7 +92,7 @@ function state(){
    default:
         
                 
-     //   values+=action;
+        values+=action;
         operation.push(action);
        /* reg=/0{2,10}/;
         var res=values.match(reg).length;
@@ -111,7 +111,7 @@ function state(){
 
    //     console.log("res:"+res);
  
-        $("#display").val(values);
+        $("#display").val(operation.join(""));
 
         console.log("Add numbers");
         break;
