@@ -47,6 +47,7 @@ function state(){
                 $("#display").val(values);
                 cp=0;
                 console.log("Add operators");
+                cz=0;
               }
       
         break;
@@ -89,32 +90,25 @@ function state(){
         erase=true;
          break;
 
+    
   
    default:
-        
+          if(operation[operation.length-1]=="0"&&cz<=1) //if previous number is zero then changed it for the last zero
+                {        
+                    console.log("its zero");
+                    operation[operation.length-1]=action;
+                    $("#display").val(operation.join(""));
+               }else{
+                cz++;
+                values+=action;
+                operation.push(action);
+                $("#display").val(operation.join(""));
+                console.log("Add numbers");
+               }
+      
+
                 
-        values+=action;
-        operation.push(action);
-       /* reg=/0{2,10}/;
-        var res=values.match(reg).length;
-        console.log("Length:"+res);
-        if(res!=null||action==0){
-            cz++;
-            values= values.slice(0,cz);
-            console.log("display:"+values);
-        }else{
-
-            res=null;
-            cz=0;
-        }
-*/
-
-
-   //     console.log("res:"+res);
- 
-        $("#display").val(operation.join(""));
-
-        console.log("Add numbers");
+    
         break;
     }
     console.log(operation);
