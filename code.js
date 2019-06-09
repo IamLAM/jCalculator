@@ -3,6 +3,7 @@ var ans="";
 var values="";
 var cp=0;
 var cz=0;
+var numberZero=0;
 var erase=false;
 var reg;
 var operation= [];
@@ -76,6 +77,7 @@ function state(){
                 operation.push(ans);
                 $("#display").val(ans);
                 console.log("Eval:"+ans);
+                cz=0;
         break;
 
 
@@ -93,21 +95,23 @@ function state(){
     
   
    default:
-          if(operation[operation.length-1]=="0"&&cz<=1) //if previous number is zero then changed it for the last zero
-                {        
-                    console.log("its zero");
-                    operation[operation.length-1]=action;
-                    $("#display").val(operation.join(""));
-               }else{
-                cz++;
-                values+=action;
-                operation.push(action);
+       //if previous number is zero then changed it for the last zero
+            if(operation[operation.length-1]=="0"&&cz<=1) 
+            {        
+                console.log("its zero");
+                operation[operation.length-1]=action;
                 $("#display").val(operation.join(""));
-                console.log("Add numbers");
-               }
-      
+            }else{
+                    cz++;
+                    values+=action;
+                    operation.push(action);
+                    $("#display").val(operation.join(""));
+                    console.log("Add numbers");
+            }
+            
 
-                
+               
+
     
         break;
     }
